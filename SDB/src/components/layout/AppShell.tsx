@@ -5,6 +5,7 @@ import styles from '@/components/layout/AppShell.module.css';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { TopBar } from '@/components/layout/TopBar';
 import { SearchDialog } from '@/components/search/SearchDialog';
+import { SettingsPanel } from '@/components/settings/SettingsPanel';
 import { useFocusTrap, useScrollLock } from '@/hooks/useFocusTrap';
 import { useIsCompact } from '@/hooks/useMediaQuery';
 import { isApplePlatform } from '@/lib/platform';
@@ -15,6 +16,7 @@ export const AppShell = (): React.JSX.Element => {
   const isCompact = useIsCompact();
   const [navOpen, setNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const drawerRef = useRef<HTMLElement>(null);
 
   const closeNav = useCallback(() => {
@@ -25,6 +27,12 @@ export const AppShell = (): React.JSX.Element => {
   }, []);
   const closeSearch = useCallback(() => {
     setSearchOpen(false);
+  }, []);
+  const openSettings = useCallback(() => {
+    setSettingsOpen(true);
+  }, []);
+  const closeSettings = useCallback(() => {
+    setSettingsOpen(false);
   }, []);
 
   useEffect(() => {
@@ -73,6 +81,7 @@ export const AppShell = (): React.JSX.Element => {
           setNavOpen((value) => !value);
         }}
         onOpenSearch={openSearch}
+        onOpenSettings={openSettings}
         navOpen={navOpen}
       />
 
@@ -109,6 +118,7 @@ export const AppShell = (): React.JSX.Element => {
       </div>
 
       <SearchDialog open={searchOpen} onClose={closeSearch} />
+      <SettingsPanel open={settingsOpen} onClose={closeSettings} />
     </div>
   );
 };

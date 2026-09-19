@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import styles from '@/components/layout/TopBar.module.css';
-import { MenuIcon, MoonIcon, SearchIcon, SunIcon } from '@/components/ui/icons';
+import { MenuIcon, MoonIcon, SearchIcon, SettingsIcon, SunIcon } from '@/components/ui/icons';
 import { useReadingProgress } from '@/hooks/useReadingProgress';
 import { cx } from '@/lib/cx';
 import { BOOK_AUTHOR, BOOK_TITLE } from '@/lib/meta';
@@ -11,12 +11,18 @@ import { useTheme } from '@/state/themeContext';
 interface TopBarProps {
   readonly onOpenNav: () => void;
   readonly onOpenSearch: () => void;
+  readonly onOpenSettings: () => void;
   readonly navOpen: boolean;
 }
 
 const shortcutHint = (): string => (isApplePlatform() ? '⌘K' : 'Ctrl K');
 
-export const TopBar = ({ onOpenNav, onOpenSearch, navOpen }: TopBarProps): React.JSX.Element => {
+export const TopBar = ({
+  onOpenNav,
+  onOpenSearch,
+  onOpenSettings,
+  navOpen,
+}: TopBarProps): React.JSX.Element => {
   const { theme, toggleTheme } = useTheme();
   const progress = useReadingProgress();
 
@@ -67,6 +73,15 @@ export const TopBar = ({ onOpenNav, onOpenSearch, navOpen }: TopBarProps): React
           title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
         >
           {theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+        </button>
+
+        <button
+          type="button"
+          className={styles.iconButton}
+          onClick={onOpenSettings}
+          aria-label="Open reading settings"
+        >
+          <SettingsIcon size={18} />
         </button>
       </div>
 
