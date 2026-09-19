@@ -3,6 +3,7 @@ import { useCallback, useRef, useState, type ReactNode } from 'react';
 import styles from '@/components/media/Lightbox.module.css';
 import { CloseIcon } from '@/components/ui/icons';
 import { useFocusTrap, useScrollLock } from '@/hooks/useFocusTrap';
+import { assetUrl } from '@/lib/assetUrl';
 import { cx } from '@/lib/cx';
 import { LightboxContext } from '@/state/lightboxContext';
 import type { FigureBlock } from '@/types/book';
@@ -68,7 +69,7 @@ export const LightboxProvider = ({ children }: { children: ReactNode }): React.J
             >
               <img
                 className={styles.image}
-                src={figure.src}
+                src={assetUrl(figure.src)}
                 alt={figure.alt}
                 width={figure.width}
                 height={figure.height}

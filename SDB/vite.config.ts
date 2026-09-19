@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  // Served from https://mdabidahmed.github.io/SDB/ as a GitHub Pages project site.
+  base: '/SDB/',
   plugins: [react()],
   resolve: {
     alias: {

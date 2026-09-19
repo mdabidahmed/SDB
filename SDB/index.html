@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="color-scheme" content="light dark" />
     <title>System Design Interview – An insider's guide</title>
     <meta
@@ -49,6 +49,23 @@
     </script>
   </head>
   <body>
+    <!-- Counterpart to public/404.html's redirect: restores the real deep-link
+         path (encoded in the query string) before React Router mounts. -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <noscript>
       <p style="padding: 2rem; font: 16px/1.6 system-ui, sans-serif">

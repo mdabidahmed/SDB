@@ -1,4 +1,5 @@
 import styles from '@/components/blocks/blocks.module.css';
+import { assetUrl } from '@/lib/assetUrl';
 import { cx } from '@/lib/cx';
 import { useLightbox } from '@/state/lightboxContext';
 import type { FigureBlock } from '@/types/book';
@@ -24,7 +25,7 @@ export const FigureView = ({ block }: { block: FigureBlock }): React.JSX.Element
       >
         <img
           className={styles.figureImage}
-          src={block.src}
+          src={assetUrl(block.src)}
           alt={block.alt}
           width={block.width}
           height={block.height}
