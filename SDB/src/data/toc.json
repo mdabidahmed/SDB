@@ -1,0 +1,998 @@
+[
+  {
+    "id": "system-design-interview-an-insiders-guide",
+    "number": null,
+    "title": "System Design Interview: An Insider’s Guide",
+    "fullTitle": "System Design Interview: An Insider’s Guide",
+    "topics": [
+      {
+        "id": "system-design-interview-an-insiders-guide",
+        "title": "System Design Interview: An Insider’s Guide"
+      },
+      {
+        "id": "table-of-contents",
+        "title": "Table of Contents"
+      }
+    ]
+  },
+  {
+    "id": "forward",
+    "number": null,
+    "title": "FORWARD",
+    "fullTitle": "FORWARD",
+    "topics": [
+      {
+        "id": "forward",
+        "title": "FORWARD"
+      }
+    ]
+  },
+  {
+    "id": "chapter-1",
+    "number": 1,
+    "title": "SCALE FROM ZERO TO MILLIONS OF USERS",
+    "fullTitle": "CHAPTER 1: SCALE FROM ZERO TO MILLIONS OF USERS",
+    "topics": [
+      {
+        "id": "scale-from-zero-to-millions-of-users",
+        "title": "SCALE FROM ZERO TO MILLIONS OF USERS"
+      },
+      {
+        "id": "single-server-setup",
+        "title": "Single server setup"
+      },
+      {
+        "id": "database",
+        "title": "Database"
+      },
+      {
+        "id": "which-databases-to-use",
+        "title": "Which databases to use?"
+      },
+      {
+        "id": "vertical-scaling-vs-horizontal-scaling",
+        "title": "Vertical scaling vs horizontal scaling"
+      },
+      {
+        "id": "load-balancer",
+        "title": "Load balancer"
+      },
+      {
+        "id": "database-replication",
+        "title": "Database replication"
+      },
+      {
+        "id": "cache",
+        "title": "Cache"
+      },
+      {
+        "id": "cache-tier",
+        "title": "Cache tier"
+      },
+      {
+        "id": "considerations-for-using-cache",
+        "title": "Considerations for using cache"
+      },
+      {
+        "id": "content-delivery-network-cdn",
+        "title": "Content delivery network (CDN)"
+      },
+      {
+        "id": "considerations-of-using-a-cdn",
+        "title": "Considerations of using a CDN"
+      },
+      {
+        "id": "stateless-web-tier",
+        "title": "Stateless web tier"
+      },
+      {
+        "id": "stateful-architecture",
+        "title": "Stateful architecture"
+      },
+      {
+        "id": "stateless-architecture",
+        "title": "Stateless architecture"
+      },
+      {
+        "id": "data-centers",
+        "title": "Data centers"
+      },
+      {
+        "id": "message-queue",
+        "title": "Message queue"
+      },
+      {
+        "id": "logging-metrics-automation",
+        "title": "Logging, metrics, automation"
+      },
+      {
+        "id": "database-scaling",
+        "title": "Database scaling"
+      },
+      {
+        "id": "vertical-scaling",
+        "title": "Vertical scaling"
+      },
+      {
+        "id": "horizontal-scaling",
+        "title": "Horizontal scaling"
+      },
+      {
+        "id": "millions-of-users-and-beyond",
+        "title": "Millions of users and beyond"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-2",
+    "number": 2,
+    "title": "BACK-OF-THE-ENVELOPE ESTIMATION",
+    "fullTitle": "CHAPTER 2: BACK-OF-THE-ENVELOPE ESTIMATION",
+    "topics": [
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "BACK-OF-THE-ENVELOPE ESTIMATION"
+      },
+      {
+        "id": "power-of-two",
+        "title": "Power of two"
+      },
+      {
+        "id": "latency-numbers-every-programmer-should-know",
+        "title": "Latency numbers every programmer should know"
+      },
+      {
+        "id": "availability-numbers",
+        "title": "Availability numbers"
+      },
+      {
+        "id": "example-estimate-twitter-qps-and-storage-requirements",
+        "title": "Example: Estimate Twitter QPS and storage requirements"
+      },
+      {
+        "id": "tips",
+        "title": "Tips"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-3",
+    "number": 3,
+    "title": "A FRAMEWORK FOR SYSTEM DESIGN INTERVIEWS",
+    "fullTitle": "CHAPTER 3: A FRAMEWORK FOR SYSTEM DESIGN INTERVIEWS",
+    "topics": [
+      {
+        "id": "a-framework-for-system-design-interviews",
+        "title": "A FRAMEWORK FOR SYSTEM DESIGN INTERVIEWS"
+      },
+      {
+        "id": "a-4-step-process-for-effective-system-design-interview",
+        "title": "A 4-step process for effective system design interview"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "time-allocation-on-each-step",
+        "title": "Time allocation on each step"
+      }
+    ]
+  },
+  {
+    "id": "chapter-4",
+    "number": 4,
+    "title": "DESIGN A RATE LIMITER",
+    "fullTitle": "CHAPTER 4: DESIGN A RATE LIMITER",
+    "topics": [
+      {
+        "id": "design-a-rate-limiter",
+        "title": "DESIGN A RATE LIMITER"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "where-to-put-the-rate-limiter",
+        "title": "Where to put the rate limiter?"
+      },
+      {
+        "id": "algorithms-for-rate-limiting",
+        "title": "Algorithms for rate limiting"
+      },
+      {
+        "id": "high-level-architecture",
+        "title": "High-level architecture"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "rate-limiting-rules",
+        "title": "Rate limiting rules"
+      },
+      {
+        "id": "exceeding-the-rate-limit",
+        "title": "Exceeding the rate limit"
+      },
+      {
+        "id": "detailed-design",
+        "title": "Detailed design"
+      },
+      {
+        "id": "rate-limiter-in-a-distributed-environment",
+        "title": "Rate limiter in a distributed environment"
+      },
+      {
+        "id": "performance-optimization",
+        "title": "Performance optimization"
+      },
+      {
+        "id": "monitoring",
+        "title": "Monitoring"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-5",
+    "number": 5,
+    "title": "DESIGN CONSISTENT HASHING",
+    "fullTitle": "CHAPTER 5: DESIGN CONSISTENT HASHING",
+    "topics": [
+      {
+        "id": "design-consistent-hashing",
+        "title": "DESIGN CONSISTENT HASHING"
+      },
+      {
+        "id": "the-rehashing-problem",
+        "title": "The rehashing problem"
+      },
+      {
+        "id": "consistent-hashing",
+        "title": "Consistent hashing"
+      },
+      {
+        "id": "hash-space-and-hash-ring",
+        "title": "Hash space and hash ring"
+      },
+      {
+        "id": "hash-servers",
+        "title": "Hash servers"
+      },
+      {
+        "id": "hash-keys",
+        "title": "Hash keys"
+      },
+      {
+        "id": "server-lookup",
+        "title": "Server lookup"
+      },
+      {
+        "id": "add-a-server",
+        "title": "Add a server"
+      },
+      {
+        "id": "remove-a-server",
+        "title": "Remove a server"
+      },
+      {
+        "id": "two-issues-in-the-basic-approach",
+        "title": "Two issues in the basic approach"
+      },
+      {
+        "id": "virtual-nodes",
+        "title": "Virtual nodes"
+      },
+      {
+        "id": "find-affected-keys",
+        "title": "Find affected keys"
+      },
+      {
+        "id": "wrap-up",
+        "title": "Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-6",
+    "number": 6,
+    "title": "DESIGN A KEY-VALUE STORE",
+    "fullTitle": "CHAPTER 6: DESIGN A KEY-VALUE STORE",
+    "topics": [
+      {
+        "id": "design-a-key-value-store",
+        "title": "DESIGN A KEY-VALUE STORE"
+      },
+      {
+        "id": "understand-the-problem-and-establish-design-scope",
+        "title": "Understand the problem and establish design scope"
+      },
+      {
+        "id": "single-server-key-value-store",
+        "title": "Single server key-value store"
+      },
+      {
+        "id": "distributed-key-value-store",
+        "title": "Distributed key-value store"
+      },
+      {
+        "id": "cap-theorem",
+        "title": "CAP theorem"
+      },
+      {
+        "id": "system-components",
+        "title": "System components"
+      },
+      {
+        "id": "data-partition",
+        "title": "Data partition"
+      },
+      {
+        "id": "data-replication",
+        "title": "Data replication"
+      },
+      {
+        "id": "consistency",
+        "title": "Consistency"
+      },
+      {
+        "id": "inconsistency-resolution-versioning",
+        "title": "Inconsistency resolution: versioning"
+      },
+      {
+        "id": "handling-failures",
+        "title": "Handling failures"
+      },
+      {
+        "id": "system-architecture-diagram",
+        "title": "System architecture diagram"
+      },
+      {
+        "id": "write-path",
+        "title": "Write path"
+      },
+      {
+        "id": "read-path",
+        "title": "Read path"
+      },
+      {
+        "id": "summary",
+        "title": "Summary"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-7",
+    "number": 7,
+    "title": "DESIGN A UNIQUE ID GENERATOR IN DISTRIBUTED SYSTEMS",
+    "fullTitle": "CHAPTER 7: DESIGN A UNIQUE ID GENERATOR IN DISTRIBUTED SYSTEMS",
+    "topics": [
+      {
+        "id": "design-a-unique-id-generator-in-distributed-systems",
+        "title": "DESIGN A UNIQUE ID GENERATOR IN DISTRIBUTED SYSTEMS"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "multi-master-replication",
+        "title": "Multi-master replication"
+      },
+      {
+        "id": "uuid",
+        "title": "UUID"
+      },
+      {
+        "id": "ticket-server",
+        "title": "Ticket Server"
+      },
+      {
+        "id": "twitter-snowflake-approach",
+        "title": "Twitter snowflake approach"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-8",
+    "number": 8,
+    "title": "DESIGN A URL SHORTENER",
+    "fullTitle": "CHAPTER 8: DESIGN A URL SHORTENER",
+    "topics": [
+      {
+        "id": "design-a-url-shortener",
+        "title": "DESIGN A URL SHORTENER"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "Back of the envelope estimation"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "api-endpoints",
+        "title": "API Endpoints"
+      },
+      {
+        "id": "url-redirecting",
+        "title": "URL redirecting"
+      },
+      {
+        "id": "url-shortening",
+        "title": "URL shortening"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "data-model",
+        "title": "Data model"
+      },
+      {
+        "id": "hash-function",
+        "title": "Hash function"
+      },
+      {
+        "id": "url-shortening-deep-dive",
+        "title": "URL shortening deep dive"
+      },
+      {
+        "id": "url-redirecting-deep-dive",
+        "title": "URL redirecting deep dive"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-9",
+    "number": 9,
+    "title": "DESIGN A WEB CRAWLER",
+    "fullTitle": "CHAPTER 9: DESIGN A WEB CRAWLER",
+    "topics": [
+      {
+        "id": "design-a-web-crawler",
+        "title": "DESIGN A WEB CRAWLER"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "Back of the envelope estimation"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "dfs-vs-bfs",
+        "title": "DFS vs BFS"
+      },
+      {
+        "id": "url-frontier",
+        "title": "URL frontier"
+      },
+      {
+        "id": "html-downloader",
+        "title": "HTML Downloader"
+      },
+      {
+        "id": "robustness",
+        "title": "Robustness"
+      },
+      {
+        "id": "extensibility",
+        "title": "Extensibility"
+      },
+      {
+        "id": "detect-and-avoid-problematic-content",
+        "title": "Detect and avoid problematic content"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-10",
+    "number": 10,
+    "title": "DESIGN A NOTIFICATION SYSTEM",
+    "fullTitle": "CHAPTER 10: DESIGN A NOTIFICATION SYSTEM",
+    "topics": [
+      {
+        "id": "design-a-notification-system",
+        "title": "DESIGN A NOTIFICATION SYSTEM"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "different-types-of-notifications",
+        "title": "Different types of notifications"
+      },
+      {
+        "id": "contact-info-gathering-flow",
+        "title": "Contact info gathering flow"
+      },
+      {
+        "id": "notification-sending-receiving-flow",
+        "title": "Notification sending/receiving flow"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "reliability",
+        "title": "Reliability"
+      },
+      {
+        "id": "additional-components-and-considerations",
+        "title": "Additional components and considerations"
+      },
+      {
+        "id": "updated-design",
+        "title": "Updated design"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-11",
+    "number": 11,
+    "title": "DESIGN A NEWS FEED SYSTEM",
+    "fullTitle": "CHAPTER 11: DESIGN A NEWS FEED SYSTEM",
+    "topics": [
+      {
+        "id": "design-a-news-feed-system",
+        "title": "DESIGN A NEWS FEED SYSTEM"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "newsfeed-apis",
+        "title": "Newsfeed APIs"
+      },
+      {
+        "id": "feed-publishing",
+        "title": "Feed publishing"
+      },
+      {
+        "id": "newsfeed-building",
+        "title": "Newsfeed building"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "feed-publishing-deep-dive",
+        "title": "Feed publishing deep dive"
+      },
+      {
+        "id": "newsfeed-retrieval-deep-dive",
+        "title": "Newsfeed retrieval deep dive"
+      },
+      {
+        "id": "cache-architecture",
+        "title": "Cache architecture"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-12",
+    "number": 12,
+    "title": "DESIGN A CHAT SYSTEM",
+    "fullTitle": "CHAPTER 12: DESIGN A CHAT SYSTEM",
+    "topics": [
+      {
+        "id": "design-a-chat-system",
+        "title": "DESIGN A CHAT SYSTEM"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "polling",
+        "title": "Polling"
+      },
+      {
+        "id": "long-polling",
+        "title": "Long polling"
+      },
+      {
+        "id": "websocket",
+        "title": "WebSocket"
+      },
+      {
+        "id": "high-level-design",
+        "title": "High-level design"
+      },
+      {
+        "id": "data-models",
+        "title": "Data models"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "service-discovery",
+        "title": "Service discovery"
+      },
+      {
+        "id": "message-flows",
+        "title": "Message flows"
+      },
+      {
+        "id": "online-presence",
+        "title": "Online presence"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-13",
+    "number": 13,
+    "title": "DESIGN A SEARCH AUTOCOMPLETE SYSTEM",
+    "fullTitle": "CHAPTER 13: DESIGN A SEARCH AUTOCOMPLETE SYSTEM",
+    "topics": [
+      {
+        "id": "design-a-search-autocomplete-system",
+        "title": "DESIGN A SEARCH AUTOCOMPLETE SYSTEM"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "Back of the envelope estimation"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "data-gathering-service",
+        "title": "Data gathering service"
+      },
+      {
+        "id": "query-service",
+        "title": "Query service"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "trie-data-structure",
+        "title": "Trie data structure"
+      },
+      {
+        "id": "data-gathering-service-2",
+        "title": "Data gathering service"
+      },
+      {
+        "id": "query-service-2",
+        "title": "Query service"
+      },
+      {
+        "id": "trie-operations",
+        "title": "Trie operations"
+      },
+      {
+        "id": "scale-the-storage",
+        "title": "Scale the storage"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-14",
+    "number": 14,
+    "title": "DESIGN YOUTUBE",
+    "fullTitle": "CHAPTER 14: DESIGN YOUTUBE",
+    "topics": [
+      {
+        "id": "design-youtube",
+        "title": "DESIGN YOUTUBE"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "Back of the envelope estimation"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "video-uploading-flow",
+        "title": "Video uploading flow"
+      },
+      {
+        "id": "video-streaming-flow",
+        "title": "Video streaming flow"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "video-transcoding",
+        "title": "Video transcoding"
+      },
+      {
+        "id": "directed-acyclic-graph-dag-model",
+        "title": "Directed acyclic graph (DAG) model"
+      },
+      {
+        "id": "video-transcoding-architecture",
+        "title": "Video transcoding architecture"
+      },
+      {
+        "id": "system-optimizations",
+        "title": "System optimizations"
+      },
+      {
+        "id": "error-handling",
+        "title": "Error handling"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-15",
+    "number": 15,
+    "title": "DESIGN GOOGLE DRIVE",
+    "fullTitle": "CHAPTER 15: DESIGN GOOGLE DRIVE",
+    "topics": [
+      {
+        "id": "design-google-drive",
+        "title": "DESIGN GOOGLE DRIVE"
+      },
+      {
+        "id": "step-1-understand-the-problem-and-establish-design-scope",
+        "title": "Step 1 - Understand the problem and establish design scope"
+      },
+      {
+        "id": "back-of-the-envelope-estimation",
+        "title": "Back of the envelope estimation"
+      },
+      {
+        "id": "step-2-propose-high-level-design-and-get-buy-in",
+        "title": "Step 2 - Propose high-level design and get buy-in"
+      },
+      {
+        "id": "apis",
+        "title": "APIs"
+      },
+      {
+        "id": "move-away-from-single-server",
+        "title": "Move away from single server"
+      },
+      {
+        "id": "sync-conflicts",
+        "title": "Sync conflicts"
+      },
+      {
+        "id": "high-level-design",
+        "title": "High-level design"
+      },
+      {
+        "id": "step-3-design-deep-dive",
+        "title": "Step 3 - Design deep dive"
+      },
+      {
+        "id": "block-servers",
+        "title": "Block servers"
+      },
+      {
+        "id": "high-consistency-requirement",
+        "title": "High consistency requirement"
+      },
+      {
+        "id": "metadata-database",
+        "title": "Metadata database"
+      },
+      {
+        "id": "upload-flow",
+        "title": "Upload flow"
+      },
+      {
+        "id": "download-flow",
+        "title": "Download flow"
+      },
+      {
+        "id": "notification-service",
+        "title": "Notification service"
+      },
+      {
+        "id": "save-storage-space",
+        "title": "Save storage space"
+      },
+      {
+        "id": "failure-handling",
+        "title": "Failure Handling"
+      },
+      {
+        "id": "step-4-wrap-up",
+        "title": "Step 4 - Wrap up"
+      },
+      {
+        "id": "reference-materials",
+        "title": "Reference materials"
+      }
+    ]
+  },
+  {
+    "id": "chapter-16",
+    "number": 16,
+    "title": "THE LEARNING CONTINUES",
+    "fullTitle": "CHAPTER 16: THE LEARNING CONTINUES",
+    "topics": [
+      {
+        "id": "the-learning-continues",
+        "title": "THE LEARNING CONTINUES"
+      },
+      {
+        "id": "real-world-systems",
+        "title": "Real-world systems"
+      },
+      {
+        "id": "company-engineering-blogs",
+        "title": "Company engineering blogs"
+      }
+    ]
+  },
+  {
+    "id": "afterword",
+    "number": null,
+    "title": "AFTERWORD",
+    "fullTitle": "AFTERWORD",
+    "topics": [
+      {
+        "id": "afterword",
+        "title": "AFTERWORD"
+      }
+    ]
+  }
+]

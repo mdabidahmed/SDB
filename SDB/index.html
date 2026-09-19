@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <title>System Design Interview – An insider's guide</title>
+    <meta
+      name="description"
+      content="Read System Design Interview – An insider's guide, Second Edition by Alex Xu: all 16 chapters, every topic and every diagram, in a fast W3Schools-style reader."
+    />
+
+    <!--
+      Paint-blocking theme bootstrap. Resolves the persisted / system theme and
+      the base surface colours *before* the first paint so there is never a
+      flash of the wrong theme. Kept dependency-free and tiny on purpose.
+    -->
+    <style id="theme-bootstrap">
+      :root {
+        --boot-bg: #ffffff;
+        --boot-fg: #14181f;
+      }
+      html[data-theme='dark'] {
+        --boot-bg: #0f1216;
+        --boot-fg: #e6e9ef;
+      }
+      html {
+        background-color: var(--boot-bg);
+        color: var(--boot-fg);
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('sdi.theme');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          /* private mode / storage disabled — fall back to the light default */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font: 16px/1.6 system-ui, sans-serif">
+        This reader needs JavaScript enabled to display the book.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

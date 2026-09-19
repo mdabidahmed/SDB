@@ -1,0 +1,177 @@
+/* Design tokens. Primitives here, semantics below, theme overrides at the end. */
+
+:root {
+  /* Type ------------------------------------------------------------------ */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+  --leading-prose: 1.75;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.011em;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.06em;
+
+  /* Space — 4px base ------------------------------------------------------ */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+
+  /* Radii ----------------------------------------------------------------- */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 999px;
+
+  /* Layout ---------------------------------------------------------------- */
+  --topbar-h: 56px;
+  --sidebar-w: 304px;
+  --minitoc-w: 236px;
+  --measure: 70ch;
+  --content-pad: var(--space-8);
+  /* Anchor landing offset: clears the sticky top bar plus breathing room. */
+  --anchor-offset: calc(var(--topbar-h) + var(--space-5));
+
+  /* Motion ---------------------------------------------------------------- */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Elevation ------------------------------------------------------------- */
+  /* The top bar deliberately outranks the drawer: the hamburger stays visible
+     and usable while the drawer is open, so it doubles as the close control. */
+  --z-content: 1;
+  --z-sidebar: 30;
+  --z-overlay: 50;
+  --z-drawer: 55;
+  --z-topbar: 60;
+  --z-dialog: 70;
+  --z-lightbox: 80;
+}
+
+/* Light ------------------------------------------------------------------- */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --bg-subtle: #f6f8fa;
+  --bg-sunken: #eceff3;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-hover: #f1f4f8;
+  --surface-active: #e7ecf3;
+
+  --border: #e2e6ec;
+  --border-strong: #ccd3dd;
+
+  --fg: #14181f;
+  --fg-muted: #57617a;
+  --fg-subtle: #7c869b;
+  --fg-onaccent: #ffffff;
+
+  --accent: #0a7d55;
+  --accent-hover: #086744;
+  --accent-soft: #e4f5ed;
+  --accent-soft-hover: #d3eee1;
+  --accent-border: #a9dcc6;
+
+  --mark-bg: #fff2a8;
+  --mark-fg: #3d3000;
+
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 6%);
+  --shadow-md: 0 2px 8px -2px rgb(16 24 40 / 10%), 0 4px 16px -4px rgb(16 24 40 / 8%);
+  --shadow-lg: 0 8px 24px -6px rgb(16 24 40 / 14%), 0 16px 48px -12px rgb(16 24 40 / 12%);
+  --shadow-dialog: 0 16px 48px -12px rgb(16 24 40 / 26%), 0 4px 12px -4px rgb(16 24 40 / 12%);
+
+  --overlay-bg: rgb(16 24 40 / 44%);
+  --lightbox-bg: rgb(10 14 20 / 97%);
+  --figure-canvas: #ffffff;
+}
+
+/* Dark -------------------------------------------------------------------- */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0f1216;
+  --bg-subtle: #14181e;
+  --bg-sunken: #0b0e12;
+  --surface: #171c23;
+  --surface-raised: #1c222b;
+  --surface-hover: #1e2530;
+  --surface-active: #252d3a;
+
+  --border: #262d38;
+  --border-strong: #3a4352;
+
+  --fg: #e6e9ef;
+  --fg-muted: #a5afbf;
+  --fg-subtle: #7b8598;
+  --fg-onaccent: #04150e;
+
+  --accent: #35cf92;
+  --accent-hover: #55dda7;
+  --accent-soft: #10291f;
+  --accent-soft-hover: #163427;
+  --accent-border: #1f4b38;
+
+  --mark-bg: #6a5a12;
+  --mark-fg: #fff6cf;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 2px 8px -2px rgb(0 0 0 / 50%), 0 4px 16px -4px rgb(0 0 0 / 40%);
+  --shadow-lg: 0 8px 24px -6px rgb(0 0 0 / 56%), 0 16px 48px -12px rgb(0 0 0 / 48%);
+  --shadow-dialog: 0 16px 48px -12px rgb(0 0 0 / 70%), 0 4px 12px -4px rgb(0 0 0 / 50%);
+
+  --overlay-bg: rgb(3 6 10 / 64%);
+  --lightbox-bg: rgb(3 6 10 / 98%);
+  /* Book figures are black-on-white rasters; keep their canvas white and let
+     the frame do the theming rather than inverting the artwork. */
+  --figure-canvas: #f4f6f8;
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --content-pad: var(--space-6);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --content-pad: var(--space-4);
+    --topbar-h: 52px;
+  }
+}

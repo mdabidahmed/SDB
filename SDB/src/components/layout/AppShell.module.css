@@ -1,0 +1,85 @@
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-7) var(--content-pad) var(--space-10);
+}
+
+/* Sidebar ------------------------------------------------------------------ */
+
+.sidebar {
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  position: sticky;
+  top: var(--topbar-h);
+  height: calc(100vh - var(--topbar-h));
+  height: calc(100dvh - var(--topbar-h));
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border-right: 1px solid var(--border);
+  z-index: var(--z-sidebar);
+}
+
+/* Off-canvas drawer -------------------------------------------------------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  z-index: var(--z-overlay);
+  animation: fade var(--duration-base) var(--ease-out);
+  border: none;
+  width: 100%;
+  cursor: default;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    top: var(--topbar-h);
+    bottom: 0;
+    left: 0;
+    height: auto;
+    z-index: var(--z-drawer);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg);
+    animation: slideIn var(--duration-base) var(--ease-out);
+    max-width: 88vw;
+  }
+
+  .overlay {
+    top: var(--topbar-h);
+  }
+
+  .main {
+    padding-top: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .overlay {
+    display: none;
+  }
+}
